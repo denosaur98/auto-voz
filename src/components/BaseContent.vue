@@ -10,7 +10,7 @@
     </div>
     <div class="content__links-block" v-if="contentBlocks">
       <div class="content__advantages" id="advantages">
-        <h1>Наши перимущества:</h1>
+        <h1 class="advantages__title-fr">Наши перимущества:</h1>
         <div class="advantages__wrapper">
           <div class="advantages__items">
             <div class="items__element">
@@ -257,6 +257,26 @@ function openContentNovosibirsk() {
       height: 700px;
       gap: 30px;
 
+      @media (max-width: 1800px) {
+        padding: 100px 200px;
+        height: auto;
+      }
+
+      @media (max-width: 1300px) {
+        padding: 50px 100px 0;
+        height: auto;
+      }
+
+      @media (max-width: 800px) {
+        padding: 50px 50px 0;
+      }
+
+      @media (max-width: 600px) {
+        .advantages__title-fr {
+          font-size: 25px;
+        }
+      }
+
       .advantages__title {
         font-size: 30px;
       }
@@ -267,11 +287,26 @@ function openContentNovosibirsk() {
         justify-content: space-between;
         width: 100%;
 
+        @media (max-width: 1800px) {
+          flex-direction: row;
+          flex-wrap: wrap;
+          max-width: 900px;
+          justify-content: center;
+        }
+
+        @media (max-width: 1300px) {
+          width: 100%;
+        }
+
         .advantages__items {
           display: flex;
           align-items: center;
           justify-content: space-between;
           width: 100%;
+
+          @media (max-width: 1800px) {
+            width: auto;
+          }
 
           .items__element {
             display: flex;
@@ -282,6 +317,15 @@ function openContentNovosibirsk() {
             height: 500px;
             padding: 100px 20px;
             gap: 30px;
+
+            @media (max-width: 1300px) {
+              padding: 0;
+              height: 400px;
+            }
+
+            @media (max-width: 500px) {
+              width: 300px;
+            }
 
             .element-icon {
               font-size: 170px;
@@ -330,15 +374,27 @@ function openContentNovosibirsk() {
         transform: translate(-50%, -50%);
         gap: 100px;
 
+        @media (max-width: 660px) {
+          gap: 50px;
+        }
+
         .description__title {
           font-size: 50px;
           color: #fff;
+
+          @media (max-width: 660px) {
+            font-size: 30px;
+          }
         }
 
         .description__elements {
           display: flex;
           justify-content: center;
           gap: 200px;
+
+          @media (max-width: 660px) {
+            gap: 50px;
+          }
 
           .elements__info {
             text-align: center;
@@ -347,8 +403,12 @@ function openContentNovosibirsk() {
             font-weight: 900;
             line-height: 40px;
 
+            @media (max-width: 660px) {
+              font-size: 50px;
+            }
+
             span {
-              font-size: 30px;
+              font-size: 20px;
               font-weight: 500;
             }
           }
@@ -365,9 +425,26 @@ function openContentNovosibirsk() {
       padding: 100px 300px;
       gap: 30px;
 
+      @media (max-width: 1800px) {
+        padding: 100px 200px;
+        height: auto;
+      }
+
+      @media (max-width: 800px) {
+        padding: 50px;
+      }
+
       .text__title {
         font-size: 40px;
         text-transform: uppercase;
+
+        @media (max-width: 1300px) {
+          text-align: center;
+        }
+        
+        @media (max-width: 800px) {
+          font-size: 30px;
+        }
       }
 
       .text__description {
@@ -376,11 +453,23 @@ function openContentNovosibirsk() {
         text-align: center;
         width: 95%;
         margin-bottom: 40px;
+
+        @media (max-width: 800px) {
+          font-size: 15px;
+        }
       }
 
       .text__title-min {
         font-size: 30px;
         text-transform: uppercase;
+
+        @media (max-width: 1300px) {
+          text-align: center;
+        }
+
+        @media (max-width: 800px) {
+          font-size: 20px;
+        }
       }
 
       .text__pros-blocks {
@@ -388,15 +477,28 @@ function openContentNovosibirsk() {
         align-items: center;
         gap: 100px;
 
+        @media (max-width: 1300px) {
+          flex-direction: column;
+          gap: 50px;
+        }
+
         .pros__block {
           display: flex;
           flex-direction: column;
           gap: 20px;
           width: 500px;
 
+          @media (max-width: 660px) {
+            width: auto;
+          }
+
           .pros__title {
             font-size: 30px;
             font-weight: 900;
+
+            @media (max-width: 800px) {
+              font-size: 20px;
+            }
           }
 
           .pros__item {
@@ -408,6 +510,10 @@ function openContentNovosibirsk() {
               display: flex;
               gap: 10px;
               font-size: 30px;
+
+              @media (max-width: 800px) {
+                font-size: 20px;
+              }
               
               .pros-icon-dis {
                 color: #e0304e;

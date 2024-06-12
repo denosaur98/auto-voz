@@ -63,6 +63,13 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 50%;
   z-index: 999;
 
+  @media (max-width: 660px) {
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
   &:hover {
     color: #e0304e;
     transition: .3s;

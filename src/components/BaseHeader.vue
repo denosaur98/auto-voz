@@ -153,6 +153,11 @@ function toggleDropdown() {
       color: #262323;
       font-weight: 900;
       font-size: 30px;
+      white-space: nowrap;
+
+      @media (max-width: 950px) {
+        margin-right: 50px;
+      }
 
       @media (max-width: 520px) {
         font-size: 20px;
@@ -169,8 +174,12 @@ function toggleDropdown() {
       align-items: center;
       gap: 40px;
 
-      @media (max-width: 800px) {
+      @media (max-width: 1320px) {
         gap: 20px;
+      }
+
+      @media (max-width: 950px) {
+        flex-wrap: wrap;
       }
 
       @media (max-width: 630px) {
