@@ -44,6 +44,10 @@ const photos = ref([
   width: 100%;
   height: 750px;
 
+  @media (max-width: 1300px) {
+    height: 500px;
+  }
+
   .swiper__item {
     display: flex;
     width: 100%;
@@ -75,10 +79,40 @@ const photos = ref([
     top: 60%;
     line-height: 100px;
 
+    @media (max-width: 1800px) {
+      left: 50%;
+    }
+
+    @media (max-width: 1300px) {
+      font-size: 40px;
+      line-height: 70px;
+    }
+
+    @media (max-width: 855px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 25px;
+    }
+
     span {
       font-size: 90px;
       font-weight: 900;
       text-transform: uppercase;
+
+      @media (max-width: 1300px) {
+        font-size: 60px;
+      }
+
+      @media (max-width: 855px) {
+        font-size: 60px;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 50px;
+        line-height: 50px;
+      }
     }
   }
 }

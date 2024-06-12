@@ -36,19 +36,37 @@
         <a v-if="props.contentBlocks" href="#info" class="link">Факты о нас</a>
         <a v-if="props.contentBlocks" href="#stage" class="link">Перегон</a>
       </div>
+      <div class="burger__wrapper">
+        <button class="burger__btn" @click="toggleDropdown">
+          <font-awesome-icon :icon="['fas', 'bars']" class="burger-icon"/>
+        </button>
+        <div class="burger__dropdown" v-if="isDropdownOpen">
+          <a href="/" class="burger__link">Главная</a>
+          <a href="#directions" class="burger__link">Направления</a>
+          <a href="#contacts" class="burger__link">Контакты</a>
+          <a v-if="props.contentBlocks" href="#advantages" class="burger__link">Перимущества</a>
+          <a v-if="props.contentBlocks" href="#info" class="burger__link">Факты о нас</a>
+          <a v-if="props.contentBlocks" href="#stage" class="burger__link">Перегон</a>
+        </div>
+      </div>
     </header>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
 
 const props = defineProps({
   contentBlocks: {
     type: Boolean,
     required: true
   }
-});
+})
+
+const isDropdownOpen = ref(false)
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value
+}
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +77,6 @@ const props = defineProps({
   position: fixed;
   z-index: 999;
 
-
   .header__contacts {
     display: flex;
     align-items: center;
@@ -69,10 +86,27 @@ const props = defineProps({
     background: #262323;
     padding: 0 370px;
 
+    @media (max-width: 1800px) {
+      padding: 0 200px;
+    }
+
+    @media (max-width: 1100px) {
+      padding: 0 50px;
+    }
+
     .contacts__block {
       display: flex;
       align-items: center;
       gap: 20px;
+
+      @media (max-width: 520px) {
+
+        &:first-child {
+          flex-direction: column;
+          gap: 5px;
+          align-items: flex-start;
+        }
+      }
 
       .contacts__link {
         display: flex;
@@ -102,6 +136,14 @@ const props = defineProps({
     height: 100px;
     background: #fff;
     padding: 0 370px;
+
+    @media (max-width: 1800px) {
+      padding: 0 200px;
+    }
+
+    @media (max-width: 1100px) {
+      padding: 0 50px;
+    }
     
     .nav__logo {
       display: flex;
@@ -111,6 +153,10 @@ const props = defineProps({
       color: #262323;
       font-weight: 900;
       font-size: 30px;
+
+      @media (max-width: 520px) {
+        font-size: 20px;
+      }
 
       .logo-icon {
         color: #8a8a8a;
@@ -123,6 +169,14 @@ const props = defineProps({
       align-items: center;
       gap: 40px;
 
+      @media (max-width: 800px) {
+        gap: 20px;
+      }
+
+      @media (max-width: 630px) {
+        display: none;
+      }
+
       .link {
         color: #63666a;
         text-decoration: none;
@@ -133,6 +187,47 @@ const props = defineProps({
         color: #e0304e;
         font-weight: 500;
         border-bottom: 1px solid #e0304e;
+      }
+    }
+
+    .burger__wrapper {
+      display: none;
+
+      @media (max-width: 630px) {
+        display: flex;
+        flex-direction: column;
+
+        .burger__btn {
+          background: none;
+          border: none;
+          width: 30px;
+          height: 30px;
+
+          .burger-icon {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .burger__dropdown {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          z-index: 999;
+          right: 50px;
+          top: 120px;
+          background: #fff;
+          border: 1px solid #63666a;
+          padding: 10px;
+          border-radius: 10px;
+          gap: 10px;
+
+          .burger__link {
+            text-decoration: none;
+            color: #63666a;
+            font-size: 20px;
+          }
+        }
       }
     }
   }

@@ -109,7 +109,7 @@
     </div>
     <div class="content__contacts">
       <div class="contacts__wrapper">
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab4217b3cfccdb5673ff1f12ea759bdb524689c0a275a2f017a8902022db3e997&amp;source=constructor" width="935" height="722" frameborder="0"></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab4217b3cfccdb5673ff1f12ea759bdb524689c0a275a2f017a8902022db3e997&amp;source=constructor" width="100%" height="722" frameborder="0"></iframe>
       </div>
       <div class="contacts__wrapper" id="contacts">
         <h1 class="content__title">Контакты</h1>
@@ -183,6 +183,14 @@ function openContentNovosibirsk() {
   .content__title {
     font-size: 40px;
     font-weight: 700;
+
+    @media (max-width: 1300px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 520px) {
+      font-size: 25px;
+    }
   }
 
   .content__directions {
@@ -194,6 +202,15 @@ function openContentNovosibirsk() {
     background: #f3f1ed;
     width: 100%;
 
+    @media (max-width: 1300px) {
+      height: auto;
+      padding: 100px;
+    }
+
+    @media (max-width: 800px) {
+      padding: 50px;
+    }
+
     .content__links {
       display: flex;
       flex-wrap: wrap;
@@ -204,6 +221,12 @@ function openContentNovosibirsk() {
       justify-content: center;
       justify-items: center;
 
+      @media (max-width: 520px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: left;
+      }
+
       .links__link {
         cursor: pointer;
         background: none;
@@ -211,6 +234,10 @@ function openContentNovosibirsk() {
         text-decoration: none;
         font-size: 30px;
         color: #8a8a8a;
+
+        @media (max-width: 1300px) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -409,6 +436,11 @@ function openContentNovosibirsk() {
     width: 100%;
     gap: 50px;
 
+    @media (max-width: 1300px) {
+      flex-direction: column-reverse;
+      gap: 0;
+    }
+
     .contacts__wrapper {
       display: flex;
       flex-direction: column;
@@ -416,8 +448,29 @@ function openContentNovosibirsk() {
       width: 50%;
       height: 722px;
 
+      @media (max-width: 1800px) {
+        height: auto;
+      }
+
+      @media (max-width: 1300px) {
+        width: 100%;
+      }
+
       &:last-child {
         padding: 50px 0 50px;
+        @media (max-width: 1800px) {
+          padding-right: 50px;
+        }
+
+        @media (max-width: 1300px) {
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+
+        @media (max-width: 800px) {
+          padding-right: 0;
+        }
       }
 
       .contacts__info {
@@ -427,6 +480,15 @@ function openContentNovosibirsk() {
         align-items: flex-start;
         gap: 40px;
         margin-top: 40px;
+
+        @media (max-width: 1300px) {
+          padding: 0 100px;
+          width: auto;
+        }
+
+        @media (max-width: 800px) {
+          padding: 0 50px;
+        }
 
         .contacts__link {
           display: flex;

@@ -32,6 +32,14 @@
   align-items: center;
   padding: 0 370px;
 
+  @media (max-width: 1800px) {
+    padding: 0 200px;
+  }
+
+  @media (max-width: 1100px) {
+    padding: 0 50px;
+  }
+
   .footer__contacts {
     display: flex;
     flex-direction: column;
