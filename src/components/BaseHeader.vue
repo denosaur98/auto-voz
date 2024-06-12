@@ -2,24 +2,24 @@
   <div class="base__header">
     <header class="header__contacts">
       <div class="contacts__block">
-        <a href="tel:+7(999)-000-00-00" class="contacts__link">
+        <a href="tel:8-914-166-19-94" class="contacts__link">
           <font-awesome-icon :icon="['fas', 'phone']" class="contacts-icon" />
           8-914-166-19-94
         </a>
-        <a href="mailto:example@gmail.com" class="contacts__link">
+        <a href="mailto:avtovoz323@mail.ru" class="contacts__link">
           <font-awesome-icon :icon="['fas', 'envelope']" class="contacts-icon" />
-          example@gmail.com
+          Avtovoz323@mail.ru
         </a>
       </div>
       <div class="contacts__block">
-        <a href="https://vk.com/" class="contacts__link">
+        <a href="https://vk.com/" target="_blank" class="contacts__link">
           <font-awesome-icon :icon="['fab', 'vk']" class="social-icon" />
         </a>
-        <a href="https://ok.ru/" class="contacts__link">
+        <a href="https://ok.ru/" target="_blank" class="contacts__link">
           <font-awesome-icon :icon="['fab', 'odnoklassniki']" class="social-icon" />
         </a>
-        <a href="https://www.instagram.com/" class="contacts__link">
-          <font-awesome-icon :icon="['fab', 'instagram']" class="social-icon" />
+        <a href="https://wa.me/79141661994" target="_blank" class="contacts__link">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" class="social-icon" />
         </a>
       </div>
     </header>
@@ -30,8 +30,8 @@
       </a>
       <div class="nav__links">
         <a href="/" class="link">Главная</a>
-        <a href="/" class="link">Направления</a>
-        <a href="/" class="link">Контакты</a>
+        <a href="#directions" class="link">Направления</a>
+        <a href="#contacts" class="link">Контакты</a>
       </div>
     </header>
   </div>
@@ -46,6 +46,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: fixed;
+  z-index: 999;
+
 
   .header__contacts {
     display: flex;
