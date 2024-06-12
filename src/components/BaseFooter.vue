@@ -3,11 +3,11 @@
     <div class="footer__contacts">
       <a href="tel:8-914-166-19-94" class="contacts__link">
         <font-awesome-icon :icon="['fas', 'phone']" class="contacts-icon" />
-        8-914-166-19-94
+        <span>8-914-166-19-94</span>
       </a>
       <a href="mailto:avtovoz323@mail.ru" class="contacts__link">
         <font-awesome-icon :icon="['fas', 'envelope']" class="contacts-icon" />
-        Avtovoz323@mail.ru
+        <span>Avtovoz323@mail.ru</span>
       </a>
     </div>
     <div class="footer__contacts" style="justify-content: flex-end;">
@@ -54,6 +54,37 @@
       color: #8a8a8a;
       font-size: 13px;
       gap: 5px;
+
+      span {
+        position: relative;
+        overflow: hidden;
+
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          background-color: #e0304e;
+          transition: width 0.3s ease-in-out;
+        }
+
+        &::before {
+          left: 50%;
+        }
+
+        &::after {
+          right: 50%;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            &::before, &::after {
+              width: 50%;
+            }
+          }
+        }
+      }
 
       .contacts-icon {
         color: #e0304e;

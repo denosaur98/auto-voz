@@ -116,11 +116,11 @@
         <div class="contacts__info">
           <a href="tel:8-914-166-19-94" class="contacts__link">
             <font-awesome-icon :icon="['fas', 'phone']" class="contacts-icon" />
-            8-914-166-19-94
+            <span>8-914-166-19-94</span>
           </a>
           <a href="https://wa.me/79141661994" target="_blank" class="contacts__link">
             <font-awesome-icon :icon="['fab', 'whatsapp']" class="contacts-icon" />
-            Написать в Whatsapp
+            <span>Написать в Whatsapp</span>
           </a>
           <div class="contacts__requisites">
             <font-awesome-icon :icon="['far', 'clipboard']" class="requisites-icon" />
@@ -605,11 +605,46 @@ function openContentNovosibirsk() {
           gap: 40px;
           font-weight: 500;
 
+          span {
+            position: relative;
+            overflow: hidden;
+
+            &::before, &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              width: 0;
+              height: 2px;
+              background-color: #e0304e;
+              transition: width 0.3s ease-in-out;
+            }
+
+            &::before {
+              left: 50%;
+            }
+
+            &::after {
+              right: 50%;
+            }
+
+            @media (hover: hover) {
+              &:hover {
+                &::before, &::after {
+                  width: 50%;
+                }
+              }
+            }
+          }
+
           .contacts-icon {
             color: #e0304e;
             font-size: 50px;
             width: 50px;
-            height: auto
+            height: auto;
+
+            @media (max-width: 570px) {
+              width: 30px;
+            }
           }
         }
 
@@ -622,7 +657,11 @@ function openContentNovosibirsk() {
             color: #e0304e;
             font-size: 50px;
             width: 50px;
-            height: auto
+            height: auto;
+
+            @media (max-width: 570px) {
+              width: 30px;
+            }
           }
 
           .requisites__info {
@@ -631,6 +670,10 @@ function openContentNovosibirsk() {
             justify-content: center;
             gap: 10px;
             margin-top: 25px;
+
+            @media (max-width: 570px) {
+              margin-top: 15px;
+            }
 
             .info__items {
               font-size: 15px;
