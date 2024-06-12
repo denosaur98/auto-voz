@@ -1,10 +1,10 @@
 <template>
   <div class="app" id="top">
-    <BaseHeader :content-blocks="contentBlocks"/>
-    <BaseSwiper/>
-    <BaseContent @update-content-blocks="updateContentBlocks"/>
-    <BaseFooter/>
-    <a href="#top" class="top__link">
+    <BaseHeader :content-blocks="contentBlocks" />
+    <BaseSwiper @click="closeDropdown" />
+    <BaseContent @update-content-blocks="updateContentBlocks" @click="closeDropdown" />
+    <BaseFooter @click="closeDropdown" />
+    <a href="#top" class="top__link" @click="closeDropdown">
       <font-awesome-icon :icon="['fas', 'arrow-up']" />
     </a>
   </div>
@@ -16,10 +16,16 @@ import BaseHeader from './components/BaseHeader';
 import BaseSwiper from './components/BaseSwiper'
 import BaseContent from './components/BaseContent'
 import BaseFooter from './components/BaseFooter'
-const contentBlocks = ref(false);
+import store from '/src/store.js'
 
+const contentBlocks = ref(false)
 function updateContentBlocks(value) {
-  contentBlocks.value = value;
+  contentBlocks.value = value
+}
+function closeDropdown() {
+  if (store.state.isDropdownOpen) {
+    store.commit('closeDropdown')
+  }
 }
 </script>
 

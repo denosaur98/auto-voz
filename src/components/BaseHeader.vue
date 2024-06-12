@@ -1,6 +1,6 @@
 <template>
   <div class="base__header">
-    <header class="header__contacts">
+    <header class="header__contacts" @click="closeDropdown">
       <div class="contacts__block">
         <a href="tel:8-914-166-19-94" class="contacts__link">
           <font-awesome-icon :icon="['fas', 'phone']" class="contacts-icon" />
@@ -38,15 +38,15 @@
       </div>
       <div class="burger__wrapper">
         <button class="burger__btn" @click="toggleDropdown">
-          <font-awesome-icon :icon="['fas', 'bars']" class="burger-icon"/>
+          <font-awesome-icon :icon="['fas', 'bars']" class="burger-icon" />
         </button>
-        <div class="burger__dropdown" v-if="isDropdownOpen">
-          <a href="/" class="burger__link">Главная</a>
-          <a href="#directions" class="burger__link">Направления</a>
-          <a href="#contacts" class="burger__link">Контакты</a>
-          <a v-if="props.contentBlocks" href="#advantages" class="burger__link">Перимущества</a>
-          <a v-if="props.contentBlocks" href="#info" class="burger__link">Факты о нас</a>
-          <a v-if="props.contentBlocks" href="#stage" class="burger__link">Перегон</a>
+        <div class="burger__dropdown" v-if="store.state.isDropdownOpen">
+          <a href="/" class="burger__link" @click="toggleDropdown">Главная</a>
+          <a href="#directions" class="burger__link" @click="toggleDropdown">Направления</a>
+          <a href="#contacts" class="burger__link" @click="toggleDropdown">Контакты</a>
+          <a v-if="props.contentBlocks" href="#advantages" class="burger__link" @click="toggleDropdown">Перимущества</a>
+          <a v-if="props.contentBlocks" href="#info" class="burger__link" @click="toggleDropdown">Факты о нас</a>
+          <a v-if="props.contentBlocks" href="#stage" class="burger__link" @click="toggleDropdown">Перегон</a>
         </div>
       </div>
     </header>
@@ -54,7 +54,8 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue';
+import { defineProps } from 'vue';
+import store from '/src/store.js'
 
 const props = defineProps({
   contentBlocks: {
@@ -63,9 +64,13 @@ const props = defineProps({
   }
 })
 
-const isDropdownOpen = ref(false)
 function toggleDropdown() {
-  isDropdownOpen.value = !isDropdownOpen.value
+  store.commit('toggleDropdown')
+}
+function closeDropdown() {
+  if (store.state.isDropdownOpen) {
+    store.commit('closeDropdown')
+  }
 }
 </script>
 
