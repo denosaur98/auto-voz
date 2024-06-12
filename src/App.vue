@@ -1,10 +1,10 @@
 <template>
-  <div class="app">
+  <div class="app" id="top">
     <BaseHeader/>
     <BaseSwiper/>
     <BaseContent/>
     <BaseFooter/>
-    <a href="/" class="top__link">
+    <a href="#top" class="top__link">
       <font-awesome-icon :icon="['fas', 'arrow-up']" />
     </a>
   </div>

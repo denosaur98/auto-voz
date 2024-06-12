@@ -3,12 +3,12 @@
     <div class="content__directions" id="directions">
       <h1 class="content__title">Направления перевозки авто:</h1>
       <div class="content__links">
-        <a href="#advantages" class="links__link" @click="addBlocksVladivostok">Владивосток-Якутск-Владивосток</a>
-        <button class="links__link">Владивосток-Иркутск-Владивосток</button>
-        <button class="links__link">Владивосток-Новосибирск-Владивосток</button>
+        <a href="#advantages" class="links__link" @click="openContentYakutsk">Владивосток-Якутск-Владивосток</a>
+        <a href="#advantages" class="links__link" @click="openContentIrkutsk">Владивосток-Иркутск-Владивосток</a>
+        <a href="#advantages" class="links__link" @click="openContentNovosibirsk">Владивосток-Новосибирск-Владивосток</a>
       </div>
     </div>
-    <div class="content__links-block" v-if="vladivostokBlocks">
+    <div class="content__links-block" v-if="contentBlocks">
       <div class="content__advantages" id="advantages">
         <h1>Наши перимущества:</h1>
         <div class="advantages__wrapper">
@@ -23,7 +23,7 @@
             <div class="items__element">
               <font-awesome-icon :icon="['fas', 'clock']" class="element-icon"/>
               <h1 class="element__title">Регулярные перевозки авто</h1>
-              <p class="element__description">Осуществляем регулярные рейсы по маршруту Владивосток - Иркутск - Владивосток и обратно</p>
+              <p class="element__description">Осуществляем регулярные рейсы по маршруту Владивосток - {{ city }} - Владивосток и обратно</p>
             </div>
           </div>
           <div class="advantages__items">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="content__info-description">
+      <div class="content__info-description" id="info">
         <video id="myVideo" src="../assets/road.mp4" loop="true" autoplay="true" muted="true" style="width: 100%; height: auto; overflow: hidden;">
           <source type="video/mp4" src="../assets/road.mp4">
         </video>
@@ -54,7 +54,7 @@
           Задумавшись о транспортировке автомобиля в другой город, владелец задается вопросом как его осуществить. Из доступных способов выбор падает на перегон, который на первый взгляд кажется дешевле и доступнее. На деле все наоборот.
           При планировании перегона часто забывают о временных затратах. Финансовые вложения обернутся расходами на бензин, покупкой еды в пути и арендой ночлега при длительном перегоне. Велик риск аварий, поломок, наматывается дополнительный пробег. Если водитель наемный, вряд ли его гарантии чем-то подкреплены. В итоге автомобиль, новый или бывший в употреблении, приезжает в Ваш город в лучшем случае потеряв товарный вид.
         </p>
-        <h1 class="text__title-min">Как же перегнать из Владивостока в Иркутск ?</h1>
+        <h1 class="text__title-min">Как же перегнать из Владивостока в {{ city }} ?</h1>
           <div class="text__pros-blocks">
           <div class="pros__block">
             <h1 class="pros__title">Самостоятельный перегон авто:</h1>
@@ -94,7 +94,7 @@
                 <font-awesome-icon :icon="['fas', 'thumbs-up']" class="pros-icon-like"/>
                 Регулярный рейс
               </h1>
-              <p>за 3 года перевозок по маршруту Владивосток - Иркутск мы все доставки осуществили вовремя</p>
+              <p>за 3 года перевозок по маршруту Владивосток - {{ city }} мы все доставки осуществили вовремя</p>
             </div>
             <div class="pros__item">
               <h1>
@@ -151,9 +151,19 @@
 <script setup>
 import { ref } from 'vue';
 
-const vladivostokBlocks = ref(false)
-function addBlocksVladivostok() {
-  vladivostokBlocks.value = !vladivostokBlocks.value
+const contentBlocks = ref(false)
+const city = ref('')
+function openContentYakutsk() {
+  contentBlocks.value = true
+  city.value = 'Якутск'
+}
+function openContentIrkutsk() {
+  contentBlocks.value = true
+  city.value = 'Иркутск'
+}
+function openContentNovosibirsk() {
+  contentBlocks.value = true
+  city.value = 'Новосибирск'
 }
 </script>
 
