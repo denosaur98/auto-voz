@@ -1,8 +1,8 @@
 <template>
   <div class="app" id="top">
-    <BaseHeader/>
+    <BaseHeader :content-blocks="contentBlocks"/>
     <BaseSwiper/>
-    <BaseContent/>
+    <BaseContent @update-content-blocks="updateContentBlocks"/>
     <BaseFooter/>
     <a href="#top" class="top__link">
       <font-awesome-icon :icon="['fas', 'arrow-up']" />
@@ -11,11 +11,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import BaseHeader from './components/BaseHeader';
 import BaseSwiper from './components/BaseSwiper'
 import BaseContent from './components/BaseContent'
 import BaseFooter from './components/BaseFooter'
+const contentBlocks = ref(false);
 
+function updateContentBlocks(value) {
+  contentBlocks.value = value;
+}
 </script>
 
 <style lang="scss">

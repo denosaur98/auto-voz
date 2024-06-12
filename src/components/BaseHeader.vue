@@ -32,13 +32,23 @@
         <a href="/" class="link">Главная</a>
         <a href="#directions" class="link">Направления</a>
         <a href="#contacts" class="link">Контакты</a>
+        <a v-if="props.contentBlocks" href="#advantages" class="link">Перимущества</a>
+        <a v-if="props.contentBlocks" href="#info" class="link">Факты о нас</a>
+        <a v-if="props.contentBlocks" href="#stage" class="link">Перегон</a>
       </div>
     </header>
   </div>
 </template>
 
 <script setup>
+import { defineProps } from 'vue';
 
+const props = defineProps({
+  contentBlocks: {
+    type: Boolean,
+    required: true
+  }
+});
 </script>
 
 <style lang="scss" scoped>

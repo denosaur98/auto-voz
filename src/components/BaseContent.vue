@@ -48,7 +48,7 @@
         </div>
         <div class="info-description__overlay"></div>
       </div>
-      <div class="content__text">
+      <div class="content__text" id="stage">
         <h1 class="text__title">перегнать или автовозом ?</h1>
         <p class="text__description">
           Задумавшись о транспортировке автомобиля в другой город, владелец задается вопросом как его осуществить. Из доступных способов выбор падает на перегон, который на первый взгляд кажется дешевле и доступнее. На деле все наоборот.
@@ -149,21 +149,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineEmits } from 'vue';
 
 const contentBlocks = ref(false)
 const city = ref('')
+
+const emit = defineEmits(['update-content-blocks'])
+
 function openContentYakutsk() {
   contentBlocks.value = true
   city.value = 'Якутск'
+  emit('update-content-blocks', true)
 }
 function openContentIrkutsk() {
   contentBlocks.value = true
   city.value = 'Иркутск'
+  emit('update-content-blocks', true)
 }
 function openContentNovosibirsk() {
   contentBlocks.value = true
   city.value = 'Новосибирск'
+  emit('update-content-blocks', true)
 }
 </script>
 
